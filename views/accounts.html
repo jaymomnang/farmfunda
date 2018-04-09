@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>FarmFunda</title>
+{% set title = 'Accounts' %} {% extends 'views/_layout.html' %} {% block content %}
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-<body>
-  
-  <nav class="light-green accent-4" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">FarmFunda</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">How It Works</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Terms & Conditions</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">How It Works</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Terms & Conditions</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
-  <div class="slider">
+ <div class="slider">
     <ul class="slides">
       <li>
         <img src="img/img2.jpg"> <!-- random image -->
@@ -57,8 +28,8 @@
     </ul>
   </div>
   
-  
-    <div class="row center">     
+
+<div class="row center">     
       <div class="col s12 l6 light-blue accent-4" style="height: 200px;">
         <br />
         <h3 class="header col s12 light white-text">Invest In A Farm</h3>
@@ -117,39 +88,4 @@
       </div>
       
     </div>
-
-  
-
-  <footer class="page-footer light-green accent-4">
-    <div class="container">
-      <div class="row">
-        <div class="col l9 s12">
-          <h5 class="white-text">About FarmFunda</h5>
-          <p class="grey-text text-lighten-4">At FarmFunda we connect local farmers who require funding to grow their farms and investors/enthusiasts within East Africa. We ensure both parties enjoy not just profit but a smooth relationship.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Get To Know</h5>
-          <ul>
-            <li><a class="white-text" href="#!">FAQs</a></li>
-            <li><a class="white-text" href="#!">Policy & Procedure</a></li>            
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright light-blue accent-4">
-      <div class="container">
-        Powered by <a class="orange-text text-lighten-3" href="http://jmneontech.com">JM Neontech Limited</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-
-  </body>
-</html>
+     {% endblock %}
