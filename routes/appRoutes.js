@@ -33,6 +33,11 @@ module.exports = function(app) {
         .put(user.update_user_prof)
         .delete(user.delete_user);
 
+    // Login Routes
+    app.route('/accounts')
+        .get(login.loadLogin)
+        .post(login.authenticate);
+
     // flights Routes
     app.route('/flights')
         .get(flights.list_all_flights)

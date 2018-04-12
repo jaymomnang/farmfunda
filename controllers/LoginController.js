@@ -1,14 +1,17 @@
 'use strict';
 
-exports.getCurrentUser = function (req, res) {
+exports.loadLogin = function (req, res) {
   req.session.destroy();
-  res.render("login");
+  res.render("accounts");
 };
 
 exports.authenticate = function (req, res) {
 
   if (req.body._route == "login") {
+    
+    var _url = "loginViaPhone";
     var auth_url = mc_api + "login/" + req.body.email + "/" + req.body.pwd;
+    
     request(auth_url, function (error, response, body) {
       
       var info = JSON.parse(body);
@@ -20,8 +23,8 @@ exports.authenticate = function (req, res) {
         var session = req.session;
         res.statusMessage = "login successful";
         res.statusCode = 200;
-        res.url = "/dashboard";
-        res.redirect("dashboard");
+        res.url = "/";
+        res.redirect("/");
         
       } else {
         req.session.message = "Incorrect username or password";
@@ -33,11 +36,9 @@ exports.authenticate = function (req, res) {
   } else {
 
     //prepare attendance data
-    console.log("create new user account");
     var data = req.body;
-    console.log(data);
     createUser(req, data);
-    res.render("login");
+    res.render("accounts");
 
   }
 
@@ -48,7 +49,6 @@ var createUser = function (req, data) {
   var auth_url = mc_api + "users/";
   request.post({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: auth_url, form: data }, function (error, response, body) {
     var data = JSON.parse(body);
-    console.log(data);
     if (data.email != '') {
       req.session.message = "User account created successfully";
     }
