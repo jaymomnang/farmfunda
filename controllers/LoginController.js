@@ -9,15 +9,16 @@ exports.authenticate = function (req, res) {
 
   if (req.body._route == "login") {
     
-    var _url = "loginViaPhone";
+    //var _url = "loginViaPhone";
     var _url = mc_api + "login/" + req.body.email + "/" + req.body.pwd;
     var usr;
     var obj = helpers.getObjectFromDB(_url);
 
     obj.then(function(result){
+
       if (result.length == 1) {
         //prepare user data
-        createSession(req, info)
+        createSession(req, result);
         
         req.session.loggedIn = true;
         var session = req.session;
@@ -26,10 +27,8 @@ exports.authenticate = function (req, res) {
         res.url = "/";
         res.redirect("dashboard");
         
-      } else {
-        req.session.message = "Incorrect username or password";
-        res.render("login");
-        console.log(req.session.message);
+      } else {        
+        res.render("accounts", {msgTitle: 'Login Failed',msg : 'User authentication failed! Incorrect username or password' });
       }
     });
   } else {
