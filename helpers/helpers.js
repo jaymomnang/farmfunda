@@ -7,9 +7,18 @@ exports.getObjectFromDB = function (_url) {
             resolve(JSON.parse(body));
         });
     });
+}
 
+exports.saveData = function (data, _url) {
+    return new Promise(function (resolve, reject) {
+        request.post({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: _url, form: data }, function (error, response, body) {
+            if (error) reject(error);
+            resolve(JSON.parse(body));
+        });
+    });
 
 }
+
 
 //add 1 hour to the current time frame
 exports.addHour = function (value) {
@@ -25,7 +34,7 @@ exports.addHour = function (value) {
 }
 
 //get the travel routes of the vessels
-exports.getRoutes = function(data) {
+exports.getRoutes = function (data) {
     var _sp = [];
     var i = 0;
     var index = 0;

@@ -10,13 +10,13 @@ exports.authenticate = function (req, res) {
   if (req.body._route == "login") {
     
     var _url = "loginViaPhone";
-    var auth_url = mc_api + "login/" + req.body.email + "/" + req.body.pwd;
-    
-    request(auth_url, function (error, response, body) {
-      
-      var info = JSON.parse(body);
-      if (info.length == 1) {
-        //prepare display data
+    var _url = mc_api + "login/" + req.body.email + "/" + req.body.pwd;
+    var usr;
+    var obj = helpers.getObjectFromDB(_url);
+
+    obj.then(function(result){
+      if (result.length == 1) {
+        //prepare user data
         createSession(req, info)
         
         req.session.loggedIn = true;
@@ -24,34 +24,41 @@ exports.authenticate = function (req, res) {
         res.statusMessage = "login successful";
         res.statusCode = 200;
         res.url = "/";
-        res.redirect("/");
+        res.redirect("dashboard");
         
       } else {
         req.session.message = "Incorrect username or password";
         res.render("login");
         console.log(req.session.message);
       }
-
     });
   } else {
 
-    //prepare attendance data
+    //create user profile.
     var data = req.body;
-    createUser(req, data);
-    res.render("accounts");
+    var _url = mc_api + "users/" + req.body.email;
+    var _user = helpers.getObjectFromDB(_url);
 
+    _user.then(function(result){      
+        if(result.length == 0){
+          createUser(req, data);
+          res.render("accounts", {msgTitle: 'Account Created',msg : 'User account created successfully!' });
+        }else{
+          res.render("accounts", {msgTitle: 'Duplicate User',msg : 'User with email address ' + req.body.email + ' already exist!' });
+        }
+    });
   }
 
 };
 
 //create a new user account
 var createUser = function (req, data) {
-  var auth_url = mc_api + "users/";
-  request.post({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: auth_url, form: data }, function (error, response, body) {
-    var data = JSON.parse(body);
-    if (data.email != '') {
-      req.session.message = "User account created successfully";
-    }
+  var _url = mc_api + "users/";
+  var _user;
+  var obj = helpers.saveData(data, _url);
+  obj.then(function(result){
+    _user = result;
+    return _user;
   });
 };
 
