@@ -1,8 +1,8 @@
 'use strict';
 exports.loadDashboard = function (req, res) {
     //TODO: Get dashboard data
-    var ui_data = req.session;
-    res.render("index", { ui_data });
+    var uidata = req.session;
+    res.render("index", { uidata });
 
     //var _url = mc_api + "ports/";
     //var p = helpers.getObjectFromDB(_url);

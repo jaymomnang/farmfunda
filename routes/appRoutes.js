@@ -2,7 +2,7 @@
 module.exports = function(app) {
     var user = require('../controllers/userController');
     var login = require('../controllers/LoginController');
-    var flights = require('../controllers/flightsController');
+    var signout = require('../controllers/signoutController');
     var schedules = require('../controllers/schedulesController');
     var dashboard = require('../controllers/DashboardController');
 
@@ -39,15 +39,12 @@ module.exports = function(app) {
         .post(login.authenticate);
 
     // flights Routes
-    app.route('/flights')
-        .get(flights.list_all_flights)
-        .post(flights.add_flight)
-        .put(flights.update_flight)
-        .delete(flights.delete_flight);
+    app.route('/signout')
+        .get(signout.Logoff)
+        .post(signout.Login);
 
-    app.route('/flights/:flight_id')
-        .get(flights.get_flight);
-
+    app.route('/profile')
+        .get(users.get_users);
     
     // Dashboard Routes
     app.route('/dashboard')

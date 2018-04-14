@@ -24,14 +24,27 @@
         <li><a href="ideology">How It Works</a></li>
         <li><a href="farms">Farms</a></li>
         <li><a href="contact-us">Contact Us</a></li>
+        {% if uidata.loggedIn %}
+        <li><a href="profile">My Portfolio</a></li>
+        <li><a href="signout">Sign Out</a></li>
+        {% endif %}
+        {% if not uidata.loggedIn %}
         <li><a href="accounts">Login/Register</a></li>
+        {% endif %}
+        
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="ideology">How It Works</a></li>
         <li><a href="farms">Farms</a></li>
         <li><a href="contact-us">Contact Us</a></li>
+        {% if uidata.loggedIn %}
+        <li><a href="profile">My Portfolio</a></li>
+        <li><a href="signout">Sign Out</a></li>
+        {% endif %}
+        {% if not uidata.loggedIn %}
         <li><a href="accounts">Login/Register</a></li>
+        {% endif %}
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>

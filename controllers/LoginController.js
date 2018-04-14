@@ -1,8 +1,26 @@
 'use strict';
 
 exports.loadLogin = function (req, res) {
-  req.session.destroy();
-  res.render("accounts");
+
+  if(req.sesion == undefined){
+    var uidata = req.session;
+    req.session.destroy();
+    res.render("accounts", {uidata});
+
+  }else{
+
+      if(req.sesion.loggedIn == true){
+        var uidata = req.session;
+        res.url = "/";
+        res.redirect("profile");
+        
+      }else{
+        var uidata = req.session;
+        req.session.destroy();
+        res.render("accounts", {uidata});
+      }    
+  }
+  
 };
 
 exports.authenticate = function (req, res) {
