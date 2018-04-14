@@ -40,11 +40,11 @@ module.exports = function(app) {
 
     // flights Routes
     app.route('/signout')
-        .get(signout.Logoff)
+        .get(signout.logOff)
         .post(signout.Login);
 
     app.route('/profile')
-        .get(users.get_users);
+        .get(user.get_users);
     
     // Dashboard Routes
     app.route('/dashboard')
