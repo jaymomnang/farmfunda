@@ -18,6 +18,24 @@ exports.saveData = function(data, _url) {
 
 }
 
+exports.updateData = function(data, _url) {
+    return new Promise(function(resolve, reject) {
+        request.put({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: _url, form: data }, function(error, response, body) {
+            if (error) reject(error);
+            resolve(JSON.parse(body));
+        });
+    });
+}
+
+exports.deleteData = function(data, _url) {
+    return new Promise(function(resolve, reject) {
+        request.put({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: _url, form: data }, function(error, response, body) {
+            if (error) reject(error);
+            resolve(JSON.parse(body));
+        });
+    });
+}
+
 exports.monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
     "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
 ];

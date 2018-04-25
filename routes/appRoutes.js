@@ -11,14 +11,15 @@ module.exports = function(app) {
         .get(home.loadDefault)
         .post(home.getSchedules);
 
-    // schedules Routes
+    // farms Routes
     app.route('/farms')
-        .get(farms.list_all_schedules)
-        .post(farms.add_schedule)
-        .put(farms.update_schedule)
-        .delete(farms.delete_schedule);
+        .get(farms.list_all_farms)
+        .post(farms.add_farm)
+        .put(farms.update_farm)
+        .delete(farms.delete_farm);
+
     app.route('/schedules/:schedule_id')
-        .get(farms.get_schedule);
+        .get(farms.get_farm);
 
     // Users Routes
     app.route('/manage_usr')
