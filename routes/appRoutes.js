@@ -3,26 +3,22 @@ module.exports = function(app) {
     var user = require('../controllers/userController');
     var login = require('../controllers/LoginController');
     var signout = require('../controllers/signoutController');
-    var schedules = require('../controllers/schedulesController');
-    var dashboard = require('../controllers/DashboardController');
-
-    global.monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
-        "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
-    ];
+    var farms = require('../controllers/farmsController');
+    var home = require('../controllers/homeController');
 
     // Login Routes
     app.route('/')
-        .get(dashboard.loadDashboard)
-        .post(dashboard.getSchedules);
-    
+        .get(home.loadDefault)
+        .post(home.getSchedules);
+
     // schedules Routes
-    app.route('/schedules')
-        .get(schedules.list_all_schedules)
-        .post(schedules.add_schedule)
-        .put(schedules.update_schedule)
-        .delete(schedules.delete_schedule);
+    app.route('/farms')
+        .get(farms.list_all_schedules)
+        .post(farms.add_schedule)
+        .put(farms.update_schedule)
+        .delete(farms.delete_schedule);
     app.route('/schedules/:schedule_id')
-        .get(schedules.get_schedule);
+        .get(farms.get_schedule);
 
     // Users Routes
     app.route('/manage_usr')
@@ -45,10 +41,10 @@ module.exports = function(app) {
 
     app.route('/profile')
         .get(user.get_users);
-    
+
     // Dashboard Routes
-    app.route('/dashboard')
-        .get(dashboard.loadDashboard);
+    app.route('/home')
+        .get(home.loadDefault);
 
     // Page Not Routes
     //app.route('/404')

@@ -1,5 +1,5 @@
 'use strict';
-exports.loadDashboard = function (req, res) {
+exports.loadDefault = function(req, res) {
     //TODO: Get dashboard data
     var uidata = req.session;
     res.render("index", { uidata });
@@ -15,7 +15,7 @@ exports.loadDashboard = function (req, res) {
 
 };
 
-exports.getSchedules = function (req, res) {
+exports.getSchedules = function(req, res) {
     if (req.body.booktrip == undefined) {
         getTrips(req, res);
     } else {
@@ -24,7 +24,7 @@ exports.getSchedules = function (req, res) {
 };
 
 //queries database for available trips
-var getTrips = function (req, res) {
+var getTrips = function(req, res) {
     //TODO: load all flight/travel schedules.
     var _data = req.body._route.split(" - ")
     req.body.departure_port = _data[0];
@@ -39,7 +39,7 @@ var getTrips = function (req, res) {
     b2.departure_date = req.body.return_date;
 
     var _url = mc_api + "schedule/getTrips/single";
-    request.post({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: _url, form: req.body }, function (error, response, body) {
+    request.post({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: _url, form: req.body }, function(error, response, body) {
 
         if (error) return error;
         var data = JSON.parse(body);
@@ -53,7 +53,7 @@ var getTrips = function (req, res) {
         trips.push(data);
         if (isReturn == "true") {
 
-            request.post({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: _url, form: b2 }, function (error, response, body) {
+            request.post({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: _url, form: b2 }, function(error, response, body) {
                 if (error) return error;
                 var data1 = JSON.parse(body);
                 for (var i = 0; i < data1.length; i++) {
@@ -75,7 +75,7 @@ var getTrips = function (req, res) {
 }
 
 //book selected trips
-var bookTrip = function (req, res) {
+var bookTrip = function(req, res) {
 
     var firstleg = req.body.firstleg;
     var secondleg = req.body.secondleg;
@@ -84,21 +84,21 @@ var bookTrip = function (req, res) {
 
     var _url = mc_api + "price/";
     var obj = helpers.getObjectFromDB(_url);
-    obj.then(function (result) {
+    obj.then(function(result) {
         prices = result;
-    }, function (err) {
+    }, function(err) {
         console.log(err);
-    }).then(function () {
+    }).then(function() {
         _url = mc_api + "schedule/" + firstleg;
         var obj1 = helpers.getObjectFromDB(_url);
-        obj1.then(function (result) {
+        obj1.then(function(result) {
             trip1 = result;
-        }, function (err) {
+        }, function(err) {
             console.log(err);
-        }).then(function () {
+        }).then(function() {
             _url = mc_api + "schedule/" + secondleg;
             var obj2 = helpers.getObjectFromDB(_url);
-            obj2.then(function (result) {
+            obj2.then(function(result) {
                 trip2 = result;
 
                 trips[0] = trip1;
@@ -106,7 +106,7 @@ var bookTrip = function (req, res) {
                 var ui_data = req.session;
                 res.render("book", { menus, ui_data, trips, prices });
 
-            }, function (err) {
+            }, function(err) {
                 console.log(err);
             })
         })
