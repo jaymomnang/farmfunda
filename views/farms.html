@@ -21,32 +21,74 @@
     {% endfor %} {% if uidata.farms.length == 0 or uidata.farms.length == undefined %}
     <h4 class="center">There are currently no farm projects available for investment</h4>
     {% endif %}
-
-    <!--<div class="col s12 l4">
-        <div class="card">
-            <div class="card-image">
-                <img src="img/farmer.jpg">
-                <span class="card-title">Farm Two</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
-            </div>
-            <div class="card-content light-blue accent-4 white-text">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 l4">
-        <div class="card">
-            <div class="card-image">
-                <img src="img/farmer.jpg">
-                <span class="card-title">Farm Three</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
-            </div>
-            <div class="card-content light-blue accent-4 white-text">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-        </div>
-    </div>-->
 </div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <form method="POST" ID="newFarm">
+        <div class="modal-content">
+            <h4>New Farm</h4>
+            <div class="row">
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="validate" value="{{ uidata.username }}" disabled>
+                    <label for="icon_prefix">Farmer</label>
+                </div>
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="icon_telephone" type="tel" class="validate" value="{{ uidata.email }}" disabled>
+                    <label for="icon_telephone">Email</label>
+                </div>
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="icon_telephone" type="tel" class="validate" value="{{ uidata.phoneno }}">
+                    <label for="icon_telephone">Phone No</label>
+                </div>
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">First Name</label>
+                </div>
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">First Name</label>
+                </div>
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="icon_telephone" type="tel" class="validate">
+                    <label for="icon_telephone">Telephone</label>
+                </div>
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">First Name</label>
+                </div>
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="icon_telephone" type="tel" class="validate">
+                    <label for="icon_telephone">Telephone</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </form>
+</div>
+
+<!--<div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+</div>-->
 
 <div class="row center">
     <div class="col s12 l6 light-blue accent-4" style="height: 200px;">
@@ -58,8 +100,8 @@
     </div>
     <div class="col s12 l6 light-green accent-4" style="height: 200px;">
         <br />
-        <h3 class="header col s12 light white-text">Start Campaign</h3>
-        <a class="waves-effect waves-light btn-large green darken-3"><i class="material-icons left">assignment_turned_in</i>Get Started</a>
+        <h3 class="header col s12 light white-text">Register Your Farm</h3>
+        <a class="waves-effect waves-light btn-large green darken-3 modal-trigger" href="#modal1"><i class="material-icons left">assignment_turned_in</i>Get Started</a>
         <input type="hidden" name="getStarted" id="getStarted" value="false" />
         <br />
     </div>

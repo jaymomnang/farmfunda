@@ -1,0 +1,284 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<region name="Arusha">
+  <district>Meru</district>
+  <district>Arusha City</district>
+  <district>Arusha District</district>
+  <district>Karatu</district>
+  <district>Longido</district>
+  <district>Monduli</district>
+  <district>Ngorongoro</district>
+</region>
+<region name="Dar es Salaam">
+  <district>Ilala</district>
+  <district>Kinondoni</district>
+  <district>Temeke</district>
+  <district>Kigamboni</district>
+  <district>Ubungo</district>
+</region>
+<region name="Dodoma">
+  <district>Bahi</district>
+  <district>Chamwino</district>
+  <district>Chemba</district>
+  <district>Dodoma</district>
+  <district>Kondoa</district>
+  <district>Kongwa</district>
+  <district>Mpwapwa</district>
+</region>
+<region name="Geita">
+  <district>Bukombe</district>
+  <district>Chato</district>
+  <district>Geita</district>
+  <district>Mbogwe</district>
+  <district>Nyang'hwale</district>
+</region>
+<region name="Iringa">
+  <district>Iringa District</district>
+  <district>Iringa Municipal</district>
+  <district>Kilolo</district>
+  <district>Mafinga</district>
+  <district>Mufindi</district>
+</region>
+<region name="Kagera">
+  <district>Biharamulo</district>
+  <district>Bukoba District</district>
+  <district>Bukoba Municipal</district>
+  <district>Karagwe</district>
+  <district>Kyerwa</district>
+  <district>Missenyi</district>
+  <district>Muleba</district>
+  <district>Ngara</district>
+</region>
+<region name="Pemba North Region of Zanzibar">
+  <district>Micheweni</district>
+  <district>Wete</district>
+</region>
+<region name="Unguja North Region of Zanzibar">
+  <district>Kaskazini A</district>
+  <district>Kaskazini B</district>
+</region>
+<region name="Katavi">
+  <district>Mlele</district>
+  <district>Mpanda District</district>
+  <district>Mpanda Town</district>
+</region>
+<region name="Kigoma">
+  <district>Buhigwe</district>
+  <district>Kakonko</district>
+  <district>Kasulu District</district>
+  <district>Kasulu Town</district>
+  <district>Kibondo</district>
+  <district>Kigoma</district>
+  <district>Kigoma-Ujiji</district>
+  <district>Uvinza</district>
+</region>
+<region name="Kilimanjaro">
+  <district>Hai</district>
+  <district>Moshi District</district>
+  <district>Moshi Municipal</district>
+  <district>Mwanga</district>
+  <district>Rombo</district>
+  <district>Same</district>
+  <district>Siha</district>
+</region>
+<region name="Kusini Pemba Region of Zanzibar">
+  <district>Chake Chake</district>
+  <district>Mkoani</district>
+</region>
+<region name="Kusini Unguja Region of Zanzibar">
+  <district>Kati</district>
+  <district>Kusini</district>
+</region>
+<region name="Lindi">
+  <district>Kilwa</district>
+  <district>Lindi Municipal</district>
+  <district>Lindi District</district>  
+  <district>Liwale</district>
+  <district>Nachingwea</district>
+  <district>Ruangwa</district>
+</region>
+<region name="Manyara">
+  <district>Babati Town</district>
+  <district>Babati District</district>
+  <district>Hanang</district>
+  <district>Kiteto</district>
+  <district>Mbulu</district>
+  <district>Simanjiro</district>
+</region>
+<region name="Mara">
+  <district>Bunda</district>
+  <district>Butiama</district>
+  <district>Musoma District</district>
+  <district>Musoma Municipal</district>
+  <district>Rorya</district>
+  <district>Serengeti</district>
+  <district>Tarime</district>
+</region>
+<region name="Mbeya">
+  <district>Busokelo</district>
+  <district>Chunya</district>
+  <district>Kyela</district>
+  <district>Mbarali</district>
+  <district>Mbeya City</district>
+  <district>Mbeya District</district>
+  <district>Rungwe</district>
+</region>
+<region name="Mjini">  
+  <district>Magharibi</district>
+  <district>Mjini</district>
+</region>
+<region name="Morogoro">
+  <district>Gairo</district>
+  <district>Kilombero</district>
+  <district>Kilosa</district>
+  <district>Morogoro District</district>
+  <district>Morogoro Municipal</district>
+  <district>Mvomero</district>
+  <district>Ulanga</district>
+</region>
+<region name="Mtwara">
+  <district>Masasi District</district>
+  <district>Masasi Town</district>
+  <district>Mtwara District</district>
+  <district>Mtwara Municipal</district>
+  <district>Nanyumbu</district>
+  <district>Newala</district>
+  <district>Tandahimba</district>
+</region>
+<region name="Mwanza">
+  <district>Ilemela</district>
+  <district>Kwimba</district>
+  <district>Magu</district>
+  <district>Misungwi</district>
+  <district>Nyamagana</district>  
+  <district>Sengerema</district>
+  <district>Ukerewe</district>
+</region>
+<region name="Njombe">
+  <district>Ludewa</district>
+  <district>Makambako</district>
+  <district>Makete</district>
+  <district>Njombe District</district>
+  <district>Njombe Town</district>
+  <district>Wanging'ombe</district>
+</region>
+<region name="Pwani">
+  <district>Bagamoyo</district>
+  <district>Kibaha District</district>
+  <district>Kibaha Town</district>
+  <district>Kisarawe</district>
+  <district>Mafia</district>
+  <district>Mkuranga</district>
+  <district>Rufiji</district>
+</region>
+<region name="Rukwa">
+  <district>Kalambo</district>
+  <district>Nkasi</district>
+  <district>Sumbawanga District</district>
+  <district>Sumbawanga Municipal</district>
+</region>
+
+Ruvuma Region
+  Mbinga District Council 353,683
+  Songea District Council 173,821
+  Songea Municipal Council 203,309
+  Tunduru District Council 298,279
+  Namtumbo District Council 201,639
+  Nyasa District Council 146,160
+
+Shinyanga Region
+  Kahama Town Council 242,208
+  Kahama District Council 523,802
+  Kishapu District Council 272,990
+  Shinyanga District Council 334,417
+  Shinyanga Municipal Council 161,391
+
+Simiyu Region
+  Bariadi District Council 422,916
+  Busega District Council 203,597
+  Itilima District Council 313,900
+  Maswa District Council 344,125
+  Meatu District Council 299,619
+
+Singida Region
+  Ikungi District Council 272,959
+  Iramba District Council 236,282
+  Manyoni District Council 296,763
+  Mkalama District Council 188,733
+  Singida District Council 225,521
+  Singida Municipal Council 150,379
+
+Tabora Region
+  Igunga District Council 399,727
+  Kaliua District Council 393,358
+  Nzega District Council 502,252
+  Sikonge District Council 179,883
+  Tabora Municipal Council 226,999
+  Urambo District Council 192,781
+  Uyui District Council 396,623
+
+Tanga Region
+  Handeni District Council 276,646
+  Handeni Town Council 79,056
+  Kilindi District Council 236,833
+  Korogwe Town Council 68,308
+  Korogwe District Council 242,038
+  Lushoto District Council 492,441 (Usambara Mountains)
+  Muheza District Council 204,461
+  Mkinga District Council 118,065
+  Pangani District Council 54,025
+  Tanga City Council 273,332
+
+<region name="Arusha">
+  <district>Meru</district>
+  <district>Arusha City</district>
+  <district>Arusha District</district>
+  <district>Karatu</district>
+  <district>Longido</district>
+  <district>Monduli</district>
+  <district>Ngorongoro</district>
+</region>
+<region name="Dar es Salaam">
+  <district>Ilala</district>
+  <district>Kinondoni</district>
+  <district>Temeke</district>
+  <district>Kigamboni</district>
+  <district>Ubungo</district>
+</region>
+<region name="Dodoma">
+  <district>Bahi</district>
+  <district>Chamwino</district>
+  <district>Chemba</district>
+  <district>Dodoma</district>
+  <district>Kondoa</district>
+  <district>Kongwa</district>
+  <district>Mpwapwa</district>
+</region>
+<region name="Geita">
+  <district>Bukombe</district>
+  <district>Chato</district>
+  <district>Geita</district>
+  <district>Mbogwe</district>
+  <district>Nyang'hwale</district>
+</region>
+
+
+<region name="Iringa">
+  <district>Iringa District</district>
+  <district>Iringa Municipal</district>
+  <district>Kilolo</district>
+  <district>Mafinga</district>
+  <district>Mufindi</district>
+</region>
+
+
+<region name="Kagera">
+  <district>Biharamulo</district>
+  <district>Bukoba District</district>
+  <district>Bukoba Municipal</district>
+  <district>Karagwe</district>
+  <district>Kyerwa</district>
+  <district>Missenyi</district>
+  <district>Muleba</district>
+  <district>Ngara</district>
+</region>
