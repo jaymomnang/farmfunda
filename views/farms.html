@@ -45,9 +45,13 @@
                     <label for="icon_telephone">Phone No</label>
                 </div>
                 <div class="input-field col s12 l6">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">First Name</label>
+                    <select>
+                        <option value="" disabled selected>Select Region</option>
+                        {% for r in uidata.regions %}
+                        <option value="{{r.region}}">{{r.region}}</option>
+                        {% endfor %}                       
+                      </select>
+                    <label>Regions</label>
                 </div>
                 <div class="input-field col s12 l6">
                     <i class="material-icons prefix">account_circle</i>

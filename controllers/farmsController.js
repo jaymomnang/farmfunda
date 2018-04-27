@@ -2,15 +2,28 @@
 
 //load page defaults
 exports.list_all_farms = function(req, res) {
+    var districts, regions;
+
+
+    //_url = './helpers/regions.xml';
+    //var obj2 = helpers.getXMLData(_url);
 
     var _url = mc_api + "farms";
-
     var farms = helpers.getObjectFromDB(_url);
     farms.then(function(result) {
         req.session.farms = result;
-        var uidata = req.session;
-        return res.render("farms", { uidata });
+        _url = mc_api + 'regions';
+        var obj1 = helpers.getObjectFromDB(_url);
 
+        obj1.then(function(result) {
+            req.session.regions = result;
+            var uidata = req.session;
+
+            console.log(uidata);
+            return res.render("farms", { uidata });
+        }, function(err) {
+            console.log(err);
+        });
     }, function(err) {
         console.log(err);
     });

@@ -1,0 +1,32 @@
+<regions>
+   <region name="Arusha">Arusha</region>
+   <region name="Dar es Salaam">Dar es Salaam</region>
+   <region name="Dodoma">Dodoma</region>
+   <region name="Geita">Geita</region>
+   <region name="Iringa">Iringa</region>
+   <region name="Kagera">Kagera</region>
+   <region name="Pemba North Region of Zanzibar">Pemba North Region of Zanzibar</region>
+   <region name="Unguja North Region of Zanzibar">Unguja North Region of Zanzibar</region>
+   <region name="Katavi">Katavi</region>
+   <region name="Kigoma">Kigoma</region>
+   <region name="Kilimanjaro">Kilimanjaro</region>
+   <region name="Kusini Pemba Region of Zanzibar">Kusini Pemba Region of Zanzibar</region>
+   <region name="Kusini Unguja Region of Zanzibar">Kusini Unguja Region of Zanzibar</region>
+   <region name="Lindi">Lindi</region>
+   <region name="Manyara">Manyara</region>
+   <region name="Mara">Mara</region>
+   <region name="Mbeya">Mbeya</region>
+   <region name="Mjini">Mjini</region>
+   <region name="Morogoro">Morogoro</region>
+   <region name="Mtwara">Mtwara</region>
+   <region name="Mwanza">Mwanza</region>
+   <region name="Njombe">Njombe</region>
+   <region name="Pwani">Pwani</region>
+   <region name="Rukwa">Rukwa</region>
+   <region name="Ruvuma">Ruvuma</region>
+   <region name="Shinyanga">Shinyanga</region>
+   <region name="Simiyu">Simiyu</region>
+   <region name="Singida">Singida</region>
+   <region name="Tabora">Tabora</region>
+   <region name="Tanga">Tanga</region>
+</regions>

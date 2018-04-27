@@ -1,9 +1,22 @@
+var xmlParser = require('xml2json');
+var fs = require('fs');
+
 //get objects from database
 exports.getObjectFromDB = function(_url) {
     return new Promise(function(resolve, reject) {
         request(_url, function(error, response, body) {
             if (error) reject(error);
             resolve(JSON.parse(body));
+        });
+    });
+}
+
+exports.getXMLData = function(_url) {
+    return new Promise(function(resolve, reject) {
+        fs.readFile(_url, 'utf8', function(err, data) {
+            if (err) reject(err);
+            var json = xmlParser.toJson(data);
+            resolve(json);
         });
     });
 }
