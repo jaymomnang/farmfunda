@@ -21,6 +21,23 @@ exports.getXMLData = function(_url) {
     });
 }
 
+exports.filterArray = function(arr, param) {
+    var i = 0;
+    var data = [];
+    for (i == 0; i < arr.length; i++) {
+        if (arr[i].region == param) {
+            data.push(arr[i]);
+        }
+    }
+    return data;
+}
+
+exports.splitDetails = function(data) {
+    console.log(data);
+    return data.name.split(",");
+
+}
+
 exports.saveData = function(data, _url) {
     return new Promise(function(resolve, reject) {
         request.post({ headers: { 'content-type': 'application/x-www-form-urlencoded' }, url: _url, form: data }, function(error, response, body) {

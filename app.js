@@ -14,6 +14,11 @@ global.mc_api = "http://localhost:7000/";
 global.urlpath = "http://localhost:7100/";
 global.helpers = require('./helpers/helpers');
 
+global.monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+    "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+];
+
+
 //configure and create custom nunjucks filters
 engines.requires.nunjucks = nunjucks.configure();
 

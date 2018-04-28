@@ -17,9 +17,8 @@ exports.list_all_farms = function(req, res) {
 
         obj1.then(function(result) {
             req.session.regions = result;
+            req.session.reg = result;
             var uidata = req.session;
-
-            console.log(uidata);
             return res.render("farms", { uidata });
         }, function(err) {
             console.log(err);
@@ -32,21 +31,37 @@ exports.list_all_farms = function(req, res) {
 //post page data
 exports.add_farm = function(req, res) {
 
+    var getDistricts = req.body.getDistricts;
+    var rg = req.body.region;
+
     if (req.session.loggedIn == undefined || req.session.loggedIn == false) {
         return res.redirect("accounts");
     } else {
-        var _url = mc_api + "farms";
-        var data = req.body;
-        var farms = helpers.saveData(data, _url);
 
-        farms.then(function(result) {
-            req.session.farms = result;
+        if (getDistricts == "true") {
+
+            var regions = req.session.reg;
+            var region = helpers.filterArray(regions, rg);
+
+            console.log("---------new region-----------");
+            req.session.districts = helpers.splitDetails(region[0].districts);
+            console.log(req.session.districts);
             var uidata = req.session;
             return res.render("farms", { uidata });
+        } else {
+            var _url = mc_api + "farms";
+            var data = req.body;
+            var farms = helpers.saveData(data, _url);
 
-        }, function(err) {
-            console.log(err);
-        });
+            farms.then(function(result) {
+                req.session.farms = result;
+                var uidata = req.session;
+                return res.render("farms", { uidata });
+
+            }, function(err) {
+                console.log(err);
+            });
+        }
     }
 
 };

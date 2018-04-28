@@ -31,21 +31,22 @@
             <div class="row">
                 <div class="input-field col s12 l6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate" value="{{ uidata.username }}" disabled>
-                    <label for="icon_prefix">Farmer</label>
+                    <input name="farmer" id="farmer" type="text" class="validate" value="{{ uidata.username }}" disabled>
+                    <label for="farmer">Farmer</label>
                 </div>
                 <div class="input-field col s12 l6">
                     <i class="material-icons prefix">email</i>
-                    <input id="icon_telephone" type="tel" class="validate" value="{{ uidata.email }}" disabled>
-                    <label for="icon_telephone">Email</label>
+                    <input name="email" id="email" type="email" class="validate" value="{{ uidata.email }}" disabled>
+                    <label for="email">Email</label>
                 </div>
                 <div class="input-field col s12 l6">
                     <i class="material-icons prefix">phone</i>
-                    <input id="icon_telephone" type="tel" class="validate" value="{{ uidata.phoneno }}">
-                    <label for="icon_telephone">Phone No</label>
+                    <input name="phoneno" id="phoneno" type="tel" class="validate" value="{{ uidata.phoneno }}">
+                    <label for="phoneno">Phone No</label>
                 </div>
                 <div class="input-field col s12 l6">
-                    <select>
+                    <i class="material-icons prefix">location_on</i>
+                    <select name="region" id="region" onchange="sendData()">
                         <option value="" disabled selected>Select Region</option>
                         {% for r in uidata.regions %}
                         <option value="{{r.region}}">{{r.region}}</option>
@@ -54,25 +55,31 @@
                     <label>Regions</label>
                 </div>
                 <div class="input-field col s12 l6">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">First Name</label>
+                    <i class="material-icons prefix">location_on</i>
+                    <select name="lga" id="lga">
+                        <option value="" disabled selected>Select Districts</option>
+                        {% for d in uidata.districts %}
+                        <option value="{{d}}">{{d}}</option>
+                        {% endfor %}                       
+                      </select>
+                    <label>Districts</label>
+                    <input name="getDistricts" id="getDistricts" type="hidden" value="false">
                 </div>
                 <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">location_on</i>
+                    <input name="location" id="location" type="text" class="validate">
+                    <label for="location">Location</label>
+                </div>
+                <div class="input-field col s12 l6">
+                    <i class="material-icons prefix">business_center</i>
+                    <input name="fundsRequired" id="fundsRequired" type="number" class="validate">
+                    <label for="fundsRequired">Amount Required</label>
+                </div>
+                <!--<div class="input-field col s12 l6">
                     <i class="material-icons prefix">phone</i>
                     <input id="icon_telephone" type="tel" class="validate">
                     <label for="icon_telephone">Telephone</label>
-                </div>
-                <div class="input-field col s12 l6">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">First Name</label>
-                </div>
-                <div class="input-field col s12 l6">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="icon_telephone" type="tel" class="validate">
-                    <label for="icon_telephone">Telephone</label>
-                </div>
+                </div>-->
             </div>
 
         </div>
@@ -111,4 +118,10 @@
     </div>
     <br><br>
 </div>
+<script>
+    function sendData() {
+        $('#getDistricts').val("true");
+        document.getElementById("newFarm").submit();
+    }
+</script>
 {% endblock %}
