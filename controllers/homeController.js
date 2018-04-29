@@ -1,8 +1,10 @@
 'use strict';
 exports.loadDefault = function(req, res) {
     //TODO: Get dashboard data
+
     var uidata = req.session;
     res.render("index", { uidata });
+
 
     //var _url = mc_api + "ports/";
     //var p = helpers.getObjectFromDB(_url);

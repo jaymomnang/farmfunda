@@ -2,17 +2,20 @@
 
 exports.loadLogin = function(req, res) {
 
-    if (req.sesion == undefined) {
+    if (req.session == undefined) {
         var uidata = req.session;
         req.session.destroy();
         res.render("accounts", { uidata });
 
     } else {
 
-        if (req.sesion.loggedIn == true) {
+        if (req.session.loggedIn == true) {
             var uidata = req.session;
-            res.url = "/";
-            res.redirect("profile");
+            var _redirectURL = req.session.prev_page;
+            if (_redirectURL == undefined) {
+                _redirectURL = "/";
+            }
+            res.redirect(_redirectURL);
 
         } else {
             var uidata = req.session;
@@ -42,8 +45,15 @@ exports.authenticate = function(req, res) {
                 var session = req.session;
                 res.statusMessage = "login successful";
                 res.statusCode = 200;
+
+                var _redirectURL = req.session.prev_page;
+                if (_redirectURL == undefined) {
+                    _redirectURL = "/";
+                }
+
+
                 res.url = "/";
-                res.redirect("/");
+                res.redirect(_redirectURL);
 
             } else {
                 res.render("accounts", { msgTitle: 'Login Failed', msg: 'User authentication failed! Incorrect username or password' });

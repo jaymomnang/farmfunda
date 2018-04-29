@@ -35,6 +35,7 @@ exports.add_farm = function(req, res) {
     var rg = req.body.region;
 
     if (req.session.loggedIn == undefined || req.session.loggedIn == false) {
+        req.session.prev_page = "farms";
         return res.redirect("accounts");
     } else {
 
@@ -42,10 +43,6 @@ exports.add_farm = function(req, res) {
 
             var regions = req.session.reg;
             var region = helpers.filterArray(regions, rg);
-
-            console.log("---------new region-----------");
-            req.session.districts = helpers.splitDetails(region[0].districts);
-            console.log(req.session.districts);
             var uidata = req.session;
             return res.render("farms", { uidata });
         } else {

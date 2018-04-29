@@ -31,30 +31,25 @@
             <div class="row">
                 <div class="input-field col s12 l6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input name="farmer" id="farmer" type="text" class="validate" value="{{ uidata.username }}" disabled>
+                    <input name="farmer" id="farmer" type="text" class="validate" value="{{ uidata.username }}" disabled required>
                     <label for="farmer">Farmer</label>
                 </div>
                 <div class="input-field col s12 l6">
                     <i class="material-icons prefix">email</i>
-                    <input name="email" id="email" type="email" class="validate" value="{{ uidata.email }}" disabled>
+                    <input name="email" id="email" type="email" class="validate" value="{{ uidata.email }}" disabled required>
                     <label for="email">Email</label>
                 </div>
                 <div class="input-field col s12 l6">
                     <i class="material-icons prefix">phone</i>
-                    <input name="phoneno" id="phoneno" type="tel" class="validate" value="{{ uidata.phoneno }}">
+                    <input name="phoneno" id="phoneno" type="tel" class="validate" value="{{ uidata.phoneno }}" required>
                     <label for="phoneno">Phone No</label>
                 </div>
                 <div class="input-field col s12 l6">
-                    <i class="material-icons prefix">location_on</i>
-                    <select name="region" id="region" onchange="sendData()">
-                        <option value="" disabled selected>Select Region</option>
-                        {% for r in uidata.regions %}
-                        <option value="{{r.region}}">{{r.region}}</option>
-                        {% endfor %}                       
-                      </select>
-                    <label>Regions</label>
+                    <i class="material-icons prefix">business_center</i>
+                    <input name="fundsRequired" id="fundsRequired" type="number" class="validate" required>
+                    <label for="fundsRequired" data-error="invalid entry" data-success="">Amount Required</label>
                 </div>
-                <div class="input-field col s12 l6">
+                <!--<div class="input-field col s12 l6">
                     <i class="material-icons prefix">location_on</i>
                     <select name="lga" id="lga">
                         <option value="" disabled selected>Select Districts</option>
@@ -64,54 +59,46 @@
                       </select>
                     <label>Districts</label>
                     <input name="getDistricts" id="getDistricts" type="hidden" value="false">
-                </div>
-                <div class="input-field col s12 l6">
+                </div>-->
+                <div class="input-field col s12">
                     <i class="material-icons prefix">location_on</i>
-                    <input name="location" id="location" type="text" class="validate">
+                    <input name="location" id="location" type="text" class="validate" required>
                     <label for="location">Location</label>
                 </div>
                 <div class="input-field col s12 l6">
-                    <i class="material-icons prefix">business_center</i>
-                    <input name="fundsRequired" id="fundsRequired" type="number" class="validate">
-                    <label for="fundsRequired">Amount Required</label>
+                    <i class="material-icons prefix">location_on</i>
+                    <!-- <select name="region" id="region" onchange="sendData()">
+                        <option value="" disabled selected>Select Region</option>
+                        {% for r in uidata.regions %}
+                        <option value="{{r.region}}">{{r.region}}</option>
+                        {% endfor %}                       
+                      </select>                      
+                    <label>Regions</label>-->
+                    <input type="text" id="region" name="region" class="autocomplete" required>
+                    <label for="region">Region</label>
                 </div>
-                <!--<div class="input-field col s12 l6">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="icon_telephone" type="tel" class="validate">
-                    <label for="icon_telephone">Telephone</label>
-                </div>-->
+
             </div>
 
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="clearData()">Cancel</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="sendData()">Submit</a>
         </div>
     </form>
 </div>
 
-<!--<div class="fixed-action-btn horizontal">
-    <a class="btn-floating btn-large red">
-        <i class="large material-icons">mode_edit</i>
-    </a>
-    <ul>
-        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul>
-</div>-->
-
 <div class="row center">
     <div class="col s12 l6 light-blue accent-4" style="height: 200px;">
         <br />
-        <h3 class="header col s12 light white-text">Invest In A Farm</h3>
+        <h3 class="header col s12 light white-text">Invest Now</h3>
         <a class="waves-effect waves-light btn-large light-blue darken-3"><i class="material-icons left">account_balance</i>Invest Now</a>
         <input type="hidden" name="invest" id="invest" value="false" />
         <br />
     </div>
     <div class="col s12 l6 light-green accent-4" style="height: 200px;">
         <br />
-        <h3 class="header col s12 light white-text">Register Your Farm</h3>
+        <h3 class="header col s12 light white-text">Start A Farm</h3>
         <a class="waves-effect waves-light btn-large green darken-3 modal-trigger" href="#modal1"><i class="material-icons left">assignment_turned_in</i>Get Started</a>
         <input type="hidden" name="getStarted" id="getStarted" value="false" />
         <br />
@@ -120,8 +107,60 @@
 </div>
 <script>
     function sendData() {
-        $('#getDistricts').val("true");
+        //$('#getDistricts').val("true");
         document.getElementById("newFarm").submit();
     }
+
+    function clearData() {
+        document.getElementById("farmer").value = null;
+        document.getElementById("email").value = null;
+        document.getElementById("phoneno").value = null;
+        document.getElementById("fundsRequired").value = null;
+        document.getElementById("location").value = null;
+        document.getElementById("region").value = null;
+    }
+
+    $(document).ready(function() {
+        $('#region').autocomplete({
+            data: {
+                "Arusha": null,
+                "Dar es Salaam": null,
+                "Dodoma": null,
+                "Geita": null,
+                "Iringa": null,
+                "Kagera": null,
+                "Pemba North Region of Zanzibar": null,
+                "Unguja North Region of Zanzibar": null,
+                "Katavi": null,
+                "Kigoma": null,
+                "Kilimanjaro": null,
+                "Kusini Pemba Region of Zanzibar": null,
+                "Kusini Unguja Region of Zanzibar": null,
+                "Lindi": null,
+                "Manyara": null,
+                "Mara": null,
+                "Mbeya": null,
+                "Dodoma": null,
+                "Mjini": null,
+                "Morogoro": null,
+                "Mtwara": null,
+                "Mwanza": null,
+                "Njombe": null,
+                "Pwani": null,
+                "Rukwa": null,
+                "Ruvuma": null,
+                "Shinyanga": null,
+                "Simiyu": null,
+                "Singida": null,
+                "Tabora": null,
+                "Tanga": null
+            },
+            limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
+            onAutocomplete: function(val) {
+                // Callback function when value is autcompleted.
+            },
+            minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+        });
+    });
 </script>
 {% endblock %}
