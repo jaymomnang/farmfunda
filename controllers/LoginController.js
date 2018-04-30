@@ -19,7 +19,6 @@ exports.loadLogin = function(req, res) {
 
         } else {
             var uidata = req.session;
-            req.session.destroy();
             res.render("accounts", { uidata });
         }
     }

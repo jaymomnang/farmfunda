@@ -1,4 +1,4 @@
-{% set title = 'Farms' %} {% extends 'views/_layout.html' %} {% block content %}
+{% set title = 'Farm' %} {% extends 'views/_layout.html' %} {% block content %}
 
 <div class="row">
     <br />
@@ -25,17 +25,17 @@
                 <input name="fundsRequired" id="fundsRequired" type="number" class="validate" required>
                 <label for="fundsRequired" data-error="invalid entry" data-success="">Amount Required</label>
             </div>
-            <!--<div class="input-field col s12 l6">
-                    <i class="material-icons prefix">location_on</i>
-                    <select name="lga" id="lga">
+            <div class="input-field col s12 l6">
+                <i class="material-icons prefix">location_on</i>
+                <select name="lga" id="lga">
                         <option value="" disabled selected>Select Districts</option>
                         {% for d in uidata.districts %}
                         <option value="{{d}}">{{d}}</option>
                         {% endfor %}                       
                       </select>
-                    <label>Districts</label>
-                    <input name="getDistricts" id="getDistricts" type="hidden" value="false">
-                </div>-->
+                <label>Districts</label>
+                <input name="getDistricts" id="getDistricts" type="hidden" value="false">
+            </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">location_on</i>
                 <input name="location" id="location" type="text" class="validate" required>

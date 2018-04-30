@@ -48,6 +48,9 @@ exports.add_farm = function(req, res) {
         } else {
             var _url = mc_api + "farms";
             var data = req.body;
+
+            data.email = req.session.email;
+            data.farmer = req.session.username;
             var farms = helpers.saveData(data, _url);
 
             farms.then(function(result) {

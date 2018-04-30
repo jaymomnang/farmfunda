@@ -14,9 +14,12 @@ module.exports = function(app) {
     // farms Routes
     app.route('/farms')
         .get(farms.list_all_farms)
-        .post(farms.add_farm)
-        .put(farms.update_farm)
-        .delete(farms.delete_farm);
+        .post(farms.add_farm);
+
+    // farms Routes
+    app.route('/farm')
+        .get(farms.list_all_farms)
+        .post(farms.add_farm);
 
     app.route('/schedules/:schedule_id')
         .get(farms.get_farm);
