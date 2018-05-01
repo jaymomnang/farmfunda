@@ -3,6 +3,7 @@ module.exports = function(app) {
     var user = require('../controllers/userController');
     var login = require('../controllers/LoginController');
     var signout = require('../controllers/signoutController');
+    var profile = require('../controllers/profileController');
     var farms = require('../controllers/farmsController');
     var home = require('../controllers/homeController');
 
@@ -44,7 +45,7 @@ module.exports = function(app) {
         .post(signout.Login);
 
     app.route('/profile')
-        .get(user.get_users);
+        .get(profile.getPortfolio);
 
     // Dashboard Routes
     app.route('/home')

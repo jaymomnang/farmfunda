@@ -1,19 +1,13 @@
 'use strict';
 exports.loadDefault = function(req, res) {
     //TODO: Get dashboard data
-
-    var uidata = req.session;
-    res.render("index", { uidata });
-
-
-    //var _url = mc_api + "ports/";
-    //var p = helpers.getObjectFromDB(_url);
-    //p.then(function(result){
-    //    var _ports = result;
-    //    var _p = helpers.getRoutes(_ports);
-    //    var ui_data = req.session;
-    //    res.render("index", { menus, ui_data, _p });
-    //})
+    var _url = mc_api + "topfarms/";
+    var f = helpers.getObjectFromDB(_url);
+    f.then(function(result) {
+        req.session.topfarms = result;
+        var uidata = req.session;
+        res.render("index", { uidata });
+    })
 
 };
 

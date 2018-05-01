@@ -54,43 +54,22 @@
 <div class="row">
     <br />
     <h2 class="center">Invest In A Farm</h2>
-    <br />
+    <br /> {% for f in uidata.topfarms %}
     <div class="col s12 l4">
         <div class="card">
             <div class="card-image">
                 <img src="img/farmer.jpg">
-                <span class="card-title">Farm One</span>
+                <span class="card-title">Farm #: {{ f.farm_id }}</span>
                 <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
             </div>
             <div class="card-content light-blue accent-4 white-text">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                <h5>Farmer: {{ f.farmer}}</h5>
+                <h5>Since: {{ f.Created_date | shortDate }}</h5>
+                <p>Farm Location: {{ f.location}}, {{ f.lga}} {{ f.region}}</p>
             </div>
         </div>
     </div>
-    <div class="col s12 l4">
-        <div class="card">
-            <div class="card-image">
-                <img src="img/farmer.jpg">
-                <span class="card-title">Farm Two</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
-            </div>
-            <div class="card-content light-blue accent-4 white-text">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 l4">
-        <div class="card">
-            <div class="card-image">
-                <img src="img/farmer.jpg">
-                <span class="card-title">Farm Three</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
-            </div>
-            <div class="card-content light-blue accent-4 white-text">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 
 </div>
 {% endblock %}

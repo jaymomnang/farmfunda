@@ -1,63 +1,65 @@
 {% set title = 'Home' %} {% extends 'views/_layout.html' %} {% block content %}
 
- 
-<div class="row center">     
-      <div class="col s12 l6 light-blue accent-4" style="height: 200px;">
-        <br />
-        <h3 class="header col s12 light white-text">Invest In A Farm</h3>
-        <a class="waves-effect waves-light btn-large light-blue darken-3"><i class="material-icons left">account_balance</i>Invest Now</a>
-        <br />
-      </div>
-      <div class="col s12 l6 light-green accent-4" style="height: 200px;">
-        <br />
-        <h3 class="header col s12 light white-text">Start Campaign</h3>
-        <a class="waves-effect waves-light btn-large green darken-3"><i class="material-icons left">assignment_turned_in</i>Get Started</a>
-        <br />
-      </div>
-      <br><br>
 
+<div class="row">
+
+    <div class="col s12 l6">
+        <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row">
+                <div class="col s12 m4">
+                    <img src="img/id_300x300.png" alt="" class="circle responsive-img">
+                    <!-- notice the "circle" class -->
+                </div>
+                <div class="col s12 m8 left">
+                    <h4>{{ uidata.username }}</h4>
+                    <h4>{{ uidata.companyname }}</h4>
+                    <h6>{{ uidata.email }}</h6>
+                    <h6>{{ uidata.role }}</h6>
+                </div>
+            </div>
+        </div>
     </div>
-  
-    <div class="row">
-      <br />
-      <h2 class="center">Invest In A Farm</h2>
-      <br />
-      <div class="col s12 l4">
-        <div class="card">
-          <div class="card-image">
-            <img src="img/farmer.jpg">
-            <span class="card-title">Farm One</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
-          </div>
-          <div class="card-content light-blue accent-4 white-text">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
+    <div class="col s12 l6">
+        <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row">
+                <div class="col s12 m10 left">
+                    {% if uidata.role == "farmer" %}
+                    <h2>Total Funds Raised</h2>
+                    <h4>{{ uidata.totalfunds }}</h4>
+                    {% endif %} {% if uidata.role == "investor" %}
+                    <h2>Total Funds Invested</h2>
+                    <h4>{{ uidata.totalfunds }}</h4>
+                    {% endif %} {% if uidata.role == "subscriberAdmin" %}
+                    <h2>Support Tickets Closed</h2>
+                    <h4>{{ uidata.totaltickets }}</h4>
+                    {% endif %}
+
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col s12 l4">
-        <div class="card">
-          <div class="card-image">
-            <img src="img/farmer.jpg">
-            <span class="card-title">Farm Two</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
-          </div>
-          <div class="card-content light-blue accent-4 white-text">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 l4">
-        <div class="card">
-          <div class="card-image">
-            <img src="img/farmer.jpg">
-            <span class="card-title">Farm Three</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
-          </div>
-          <div class="card-content light-blue accent-4 white-text">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-        </div>
-      </div>
-      
     </div>
-     {% endblock %}
+
+</div>
+
+<div class="row">
+    <br />
+    <h2 class="center">My Farm Projects</h2>
+    <br /> {% for f in uidata.myfarms %}
+    <div class="col s12 l4">
+        <div class="card">
+            <div class="card-image">
+                <img src="img/farmimage.png">
+                <span class="card-title">Farm #: {{ f.farm_id }}</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light light-green accent-4"><i class="material-icons">check</i></a>
+            </div>
+            <div class="card-content light-blue accent-4 white-text">
+                <h5>Farmer: {{ f.farmer}}</h5>
+                <h5>Since: {{ f.Created_date | shortDate }}</h5>
+                <p>Farm Location: {{ f.location}}, {{ f.lga}} {{ f.region}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

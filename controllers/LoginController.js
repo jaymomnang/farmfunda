@@ -30,13 +30,13 @@ exports.authenticate = function(req, res) {
     if (req.body._route == "login") {
 
         //var _url = "loginViaPhone";
-        var _url = mc_api + "login/" + req.body.email + "/" + req.body.pwd;
+        var _url = mc_api + "login/" + req.body.email + "/" + req.body.password;
         var usr;
         var obj = helpers.getObjectFromDB(_url);
 
         obj.then(function(result) {
 
-            if (result.length == 1) {
+            if (result != null) {
                 //prepare user data
                 createSession(req, result);
 
@@ -90,11 +90,12 @@ var createUser = function(req, data) {
 
 var createSession = function(req, info) {
 
-    req.session.email = info[0].email;
-    req.session.username = info[0].firstname + " " + info[0].lastname;
-    req.session.status = info[0].status;
+    req.session.email = info.email;
+    req.session.username = info.firstname + " " + info.lastname;
+    req.session.status = info.isActive;
+    req.session.companyname = info.companyname;
     req.session.loggedIn = true;
-    req.session.role = info[0].role;
+    req.session.role = info.role;
 
     var d = new Date();
     var y = d.getFullYear();
