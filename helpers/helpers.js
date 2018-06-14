@@ -1,4 +1,4 @@
-var xmlParser = require('xml2json');
+//var xmlParser = require('xml2json');
 var fs = require('fs');
 
 //get objects from database
@@ -11,15 +11,15 @@ exports.getObjectFromDB = function(_url) {
     });
 }
 
-exports.getXMLData = function(_url) {
-    return new Promise(function(resolve, reject) {
-        fs.readFile(_url, 'utf8', function(err, data) {
-            if (err) reject(err);
-            var json = xmlParser.toJson(data);
-            resolve(json);
-        });
-    });
-}
+//exports.getXMLData = function(_url) {
+//    return new Promise(function(resolve, reject) {
+//        fs.readFile(_url, 'utf8', function(err, data) {
+//            if (err) reject(err);
+//            var json = xmlParser.toJson(data);
+//            resolve(json);
+//        });
+//    });
+//}
 
 exports.filterArray = function(arr, param) {
     var i = 0;
