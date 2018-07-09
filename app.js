@@ -9,8 +9,8 @@ var express = require('express'),
 
 global.bodyParser = require('body-parser');
 global.request = require('request');
-global.mc_api = "http://localhost:7000/";
-//global.mc_api = "http://ff-server.appspot.com/";
+//global.mc_api = "http://localhost:7000/";
+global.mc_api = "http://kilimonet.azurewebsites.net";
 global.urlpath = "http://localhost:7100/";
 global.helpers = require('./helpers/helpers');
 
