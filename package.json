@@ -8,11 +8,16 @@
         "start": "nodemon app.js"
     },
     "dependencies": {
+        "body-parser": "^1.18.3",
+        "connect": "^3.6.6",
         "consolidate": "^0.13.1",
+        "express": "^4.16.3",
         "express-session": "^1.15.6",
+        "mongo-unit": "^1.3.2",
+        "nodemon": "^1.17.5",
+        "nunjucks": "^2.5.2",
         "promise": "^8.0.1",
-        "read-xml": "^3.0.0",
-        "sweetalert": "^1.1.3"
+        "request": "^2.87.0"
     },
     "author": "Julius Momnang",
     "license": "0BSD",
@@ -21,12 +26,11 @@
         "connect": "^3.6.6",
         "consolidate": "^0.13.1",
         "express": "^4.16.3",
+        "express-session": "^1.15.6",
         "mongo-unit": "^1.3.2",
         "nodemon": "^1.17.5",
         "nunjucks": "^2.5.2",
-        "read-xml": "^3.0.0",
-        "request": "^2.87.0",
-        "sweetalert": "^1.1.3",
-        "xml2json": "^0.11.2"
+        "promise": "^8.0.1",
+        "request": "^2.87.0"
     }
 }
